@@ -1,12 +1,17 @@
+from os import path
+
+
 def main():
-    data = read_data()
+    filepath = path.abspath(path.join(__file__, "..", "data"))
+
+    data = read_data(filepath)
 
     print(part_the_first(data))
     print(part_the_second(data))
 
 
-def read_data():
-    with open('data') as file:
+def read_data(filename):
+    with open(filename) as file:
         return [int(line.strip()) for line in file]
 
 
